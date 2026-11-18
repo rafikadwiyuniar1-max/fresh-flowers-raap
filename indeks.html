@@ -1,0 +1,978 @@
+```html
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>freshFlowers by.Raa - Jasa Rental PS3, PS4 & PS5 Terlengkap</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts: Orbitron & Plus Jakarta Sans -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        darkBg: '#090D16',
+                        cardBg: '#111827',
+                        neonCyan: '#06B6D4',
+                        neonMagenta: '#EC4899',
+                        neonPurple: '#8B5CF6',
+                        waGreen: '#25D366',
+                        waDark: '#1DA851'
+                    },
+                    fontFamily: {
+                        orbitron: ['Orbitron', 'sans-serif'],
+                        sans: ['Plus Jakarta Sans', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            background-color: #090D16;
+            color: #F8FAFC;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            overflow-x: hidden;
+        }
+        .glow-cyan {
+            box-shadow: 0 0 25px rgba(6, 182, 212, 0.25);
+        }
+        .glow-magenta {
+            box-shadow: 0 0 25px rgba(236, 72, 153, 0.25);
+        }
+        .card-hover {
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .card-hover:hover {
+            transform: translateY(-4px);
+            border-color: rgba(6, 182, 212, 0.7);
+            box-shadow: 0 10px 30px -10px rgba(6, 182, 212, 0.35);
+        }
+        /* Custom scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #090D16;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #1E293B;
+            border-radius: 9999px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #06B6D4;
+        }
+    </style>
+</head>
+<body class="selection:bg-neonCyan selection:text-slate-950 antialiased">
+
+    <!-- Navbar -->
+    <header class="fixed top-0 inset-x-0 z-50 bg-darkBg/90 backdrop-blur-md border-b border-slate-800/80">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-20">
+                <!-- Brand Logo -->
+                <a href="#beranda" class="flex items-center gap-3 group">
+                    <div class="w-11 h-11 rounded-2xl bg-gradient-to-br from-neonCyan via-neonPurple to-neonMagenta p-0.5 shadow-lg shadow-cyan-500/20 group-hover:scale-105 transition-transform">
+                        <div class="w-full h-full bg-darkBg rounded-[14px] flex items-center justify-center">
+                            <!-- Gamepad SVG Icon -->
+                            <svg class="w-6 h-6 text-neonCyan" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <line x1="6" y1="12" x2="10" y2="12"></line>
+                                <line x1="8" y1="10" x2="8" y2="14"></line>
+                                <line x1="15" y1="13" x2="15.01" y2="13"></line>
+                                <line x1="18" y1="11" x2="18.01" y2="11"></line>
+                                <rect x="2" y="6" width="20" height="12" rx="6"></rect>
+                            </svg>
+                        </div>
+                    </div>
+                    <div>
+                        <span class="font-orbitron font-extrabold text-lg sm:text-xl tracking-wide text-white block leading-none">
+                            freshFlowers <span class="text-neonCyan">by.Raa</span>
+                        </span>
+                        <span class="text-[11px] text-slate-400 font-medium tracking-widest uppercase block mt-1">
+                            PlayStation Rental Center
+                        </span>
+                    </div>
+                </a>
+
+                <!-- Desktop Nav -->
+                <nav class="hidden md:flex items-center gap-7 text-sm font-medium text-slate-300">
+                    <a href="#beranda" class="hover:text-neonCyan transition-colors">Beranda</a>
+                    <a href="#harga" class="hover:text-neonCyan transition-colors">List Harga PS</a>
+                    <a href="#layanan" class="hover:text-neonCyan transition-colors">Bentuk Pemesanan</a>
+                    <a href="#pembayaran" class="hover:text-neonCyan transition-colors">Pembayaran</a>
+                    <a href="#order-form" class="px-5 py-2.5 rounded-full bg-gradient-to-r from-neonCyan to-neonMagenta text-white font-bold text-xs uppercase tracking-wider hover:opacity-90 transition-all shadow-lg shadow-cyan-500/20">
+                        Sewa Sekarang
+                    </a>
+                </nav>
+
+                <!-- Mobile Hamburger Button -->
+                <button id="mobileMenuBtn" type="button" aria-label="Buka Menu" class="md:hidden p-2.5 rounded-xl bg-slate-800/80 border border-slate-700 text-slate-200 hover:text-neonCyan">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                    </svg>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile Menu Dropdown -->
+        <div id="mobileMenu" class="hidden md:hidden bg-cardBg border-b border-slate-800 px-4 pt-3 pb-6 space-y-2">
+            <a href="#beranda" class="mobile-link block px-4 py-2.5 rounded-xl text-slate-200 hover:bg-slate-800 hover:text-neonCyan font-medium">Beranda</a>
+            <a href="#harga" class="mobile-link block px-4 py-2.5 rounded-xl text-slate-200 hover:bg-slate-800 hover:text-neonCyan font-medium">List Harga PS</a>
+            <a href="#layanan" class="mobile-link block px-4 py-2.5 rounded-xl text-slate-200 hover:bg-slate-800 hover:text-neonCyan font-medium">Bentuk Pemesanan</a>
+            <a href="#pembayaran" class="mobile-link block px-4 py-2.5 rounded-xl text-slate-200 hover:bg-slate-800 hover:text-neonCyan font-medium">Pembayaran</a>
+            <div class="pt-2">
+                <a href="#order-form" class="mobile-link block w-full text-center py-3 rounded-full bg-gradient-to-r from-neonCyan to-neonMagenta text-white font-bold text-sm">
+                    Booking & Kalkulator Harga
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="beranda" class="relative pt-32 pb-20 md:pt-40 md:pb-28 overflow-hidden">
+        <!-- Ambient Background Glows -->
+        <div class="absolute top-20 left-1/4 w-96 h-96 bg-neonCyan/10 rounded-full blur-[120px] -z-10 pointer-events-none"></div>
+        <div class="absolute bottom-10 right-1/4 w-96 h-96 bg-neonMagenta/10 rounded-full blur-[120px] -z-10 pointer-events-none"></div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid lg:grid-cols-12 gap-12 items-center">
+                <!-- Hero Content -->
+                <div class="lg:col-span-7 text-center lg:text-left space-y-6">
+                    <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-slate-800/80 border border-slate-700/80 text-neonCyan text-xs font-semibold tracking-wider">
+                        <span class="w-2 h-2 rounded-full bg-waGreen animate-ping"></span>
+                        READY UNIT PS3 • PS4 SLIM/PRO • PS5 DIGITAL/DISC
+                    </div>
+
+                    <h1 class="font-orbitron text-3xl sm:text-5xl lg:text-6xl font-black text-white leading-[1.15]">
+                        Mabar Seru Tanpa Batas Bersama <span class="text-transparent bg-clip-text bg-gradient-to-r from-neonCyan via-neonPurple to-neonMagenta">freshFlowers by.Raa</span>
+                    </h1>
+
+                    <p class="text-slate-300 text-base sm:text-lg max-w-2xl mx-auto lg:mx-0 leading-relaxed">
+                        Nikmati sensasi bermain game console terbaik! Bisa main nyaman di tempat rental, ambil COD/Takeaway, atau kami antar dan pasang langsung sampai ke rumah Anda.
+                    </p>
+
+                    <!-- Hero CTA Buttons -->
+                    <div class="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 pt-2">
+                        <a href="https://wa.me/6281904439666?text=Halo%20Admin%20freshFlowers%20by.Raa%2C%20saya%20mau%20tanya%20ketersediaan%20rental%20PlayStation%20%F0%9F%8E%AE" 
+                           target="_blank" 
+                           rel="noopener noreferrer"
+                           data-wa-url="https://wa.me/6281904439666?text=Halo%20Admin%20freshFlowers%20by.Raa%2C%20saya%20mau%20tanya%20ketersediaan%20rental%20PlayStation%20%F0%9F%8E%AE"
+                           onclick="handleWaClick(event, this.getAttribute('data-wa-url'))"
+                           class="w-full sm:w-auto px-8 py-4 rounded-full bg-waGreen hover:bg-waDark text-slate-950 font-extrabold text-sm sm:text-base transition-all shadow-lg shadow-waGreen/25 flex items-center justify-center gap-3">
+                            <!-- WhatsApp SVG -->
+                            <svg class="w-6 h-6 fill-current" viewBox="0 0 24 24">
+                                <path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.77-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.299.045-.677.063-1.092-.069-.252-.08-.575-.187-.988-.365-1.739-.751-2.874-2.502-2.961-2.617-.087-.116-.708-.94-.708-1.793s.448-1.273.607-1.446c.159-.173.346-.217.462-.217l.332.006c.106.005.249-.04.39.298.144.347.491 1.2.534 1.287.043.087.072.188.014.304-.058.116-.087.188-.173.289l-.26.304c-.087.086-.177.18-.076.354.101.174.449.741.964 1.201.662.591 1.221.774 1.394.86s.274.072.376-.043c.101-.116.433-.506.549-.68.116-.173.231-.145.39-.087s1.011.477 1.184.564.289.13.332.202c.045.072.045.419-.1.824zm-3.423-14.416c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm.029 18.88c-1.161 0-2.305-.292-3.318-.844l-3.677.964.984-3.595c-.607-1.052-.927-2.246-.926-3.468.001-3.825 3.113-6.937 6.937-6.937 1.856.001 3.598.723 4.907 2.034 1.31 1.311 2.031 3.054 2.03 4.908-.001 3.825-3.113 6.938-6.937 6.938z"/>
+                            </svg>
+                            Order via WA (081904439666)
+                        </a>
+
+                        <a href="#harga" class="w-full sm:w-auto px-8 py-4 rounded-full bg-slate-800/90 hover:bg-slate-800 border border-slate-700 hover:border-neonCyan text-white font-bold text-sm sm:text-base transition-all flex items-center justify-center gap-2">
+                            Lihat Daftar Harga
+                            <svg class="w-5 h-5 text-neonCyan" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                            </svg>
+                        </a>
+                    </div>
+
+                    <!-- Quick Highlights -->
+                    <div class="grid grid-cols-3 gap-4 pt-6 border-t border-slate-800/80">
+                        <div>
+                            <p class="font-orbitron font-bold text-lg sm:text-2xl text-neonCyan">2 Stik Ori</p>
+                            <p class="text-xs text-slate-400">Setiap Paket Sewa</p>
+                        </div>
+                        <div>
+                            <p class="font-orbitron font-bold text-lg sm:text-2xl text-neonMagenta">Full Game</p>
+                            <p class="text-xs text-slate-400">Update Bola & AAA</p>
+                        </div>
+                        <div>
+                            <p class="font-orbitron font-bold text-lg sm:text-2xl text-waGreen">Fast Delivery</p>
+                            <p class="text-xs text-slate-400">Antar Sampai Rumah</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Hero Right Showcase Card -->
+                <div class="lg:col-span-5">
+                    <div class="relative rounded-3xl bg-gradient-to-b from-slate-800/80 to-cardBg border border-slate-700/80 p-6 sm:p-8 glow-cyan">
+                        <div class="flex items-center justify-between mb-6">
+                            <span class="px-3 py-1 rounded-full bg-neonCyan/15 border border-neonCyan/40 text-neonCyan font-orbitron text-xs font-bold">
+                                #1 RENTAL PS TERPERCAYA
+                            </span>
+                            <span class="text-xs text-slate-400 font-medium">Buka Setiap Hari</span>
+                        </div>
+
+                        <!-- Decorative Console Graphic -->
+                        <div class="my-6 p-6 rounded-2xl bg-darkBg/90 border border-slate-800 text-center space-y-4">
+                            <div class="w-20 h-20 mx-auto rounded-2xl bg-gradient-to-tr from-neonCyan to-neonMagenta flex items-center justify-center shadow-lg shadow-neonMagenta/20">
+                                <svg class="w-11 h-11 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                                    <rect x="2" y="6" width="20" height="12" rx="6"></rect>
+                                    <path d="M6 12h4"></path>
+                                    <path d="M8 10v4"></path>
+                                    <circle cx="15" cy="13" r="1"></circle>
+                                    <circle cx="18" cy="11" r="1"></circle>
+                                </svg>
+                            </div>
+                            <div>
+                                <h2 class="font-orbitron text-xl font-bold text-white">freshFlowers by.Raa</h2>
+                                <p class="text-xs text-neonCyan mt-1">WA Official: 081904439666</p>
+                            </div>
+                            <div class="flex flex-wrap justify-center gap-1.5 pt-2">
+                                <span class="px-2.5 py-1 rounded-md bg-slate-800 text-[11px] text-slate-300">EA FC 24 / 25</span>
+                                <span class="px-2.5 py-1 rounded-md bg-slate-800 text-[11px] text-slate-300">eFootball</span>
+                                <span class="px-2.5 py-1 rounded-md bg-slate-800 text-[11px] text-slate-300">GTA V</span>
+                                <span class="px-2.5 py-1 rounded-md bg-slate-800 text-[11px] text-slate-300">Tekken 8</span>
+                                <span class="px-2.5 py-1 rounded-md bg-slate-800 text-[11px] text-slate-300">Spider-Man 2</span>
+                            </div>
+                        </div>
+
+                        <div class="space-y-3 text-xs text-slate-300">
+                            <div class="flex items-center justify-between p-3 rounded-xl bg-slate-800/50">
+                                <span class="text-slate-400">Mulai dari (PS3 Per Jam)</span>
+                                <span class="font-orbitron font-bold text-neonCyan text-sm">Rp 7.000 / Jam</span>
+                            </div>
+                            <div class="flex items-center justify-between p-3 rounded-xl bg-slate-800/50">
+                                <span class="text-slate-400">Sewa Harian (24 Jam)</span>
+                                <span class="font-orbitron font-bold text-neonMagenta text-sm">Mulai Rp 60.000</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section: List Harga Berdasarkan Tipe PS & Waktu -->
+    <section id="harga" class="py-20 bg-cardBg/40 border-y border-slate-800/80">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-2xl mx-auto mb-14">
+                <span class="font-orbitron text-xs font-bold tracking-widest uppercase text-neonCyan">Katalog Harga Resmi</span>
+                <h2 class="font-orbitron text-2xl sm:text-4xl font-extrabold text-white mt-2">Daftar Harga Sewa PlayStation</h2>
+                <p class="text-slate-400 text-sm sm:text-base mt-3">
+                    Pilih tipe konsol dan durasi paket sesuai kebutuhan mabar kamu. Klik tombol pesan cepat untuk langsung mengisi form atau chat WA!
+                </p>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- PS3 Card -->
+                <div class="rounded-3xl bg-cardBg border border-slate-800 p-6 sm:p-8 flex flex-col justify-between card-hover">
+                    <div>
+                        <div class="flex items-center justify-between mb-4">
+                            <span class="px-3 py-1 rounded-full bg-slate-800 text-slate-300 font-orbitron text-xs font-bold">PLAYSTATION 3</span>
+                            <span class="text-xs font-semibold text-neonCyan">Hemat & Seru</span>
+                        </div>
+                        <h3 class="font-orbitron text-2xl font-bold text-white">PS3 Slim / Super Slim</h3>
+                        <p class="text-xs text-slate-400 mt-1">Termasuk 2 Stik Wireless + Kabel HDMI & Power</p>
+
+                        <!-- Pricing Tiers -->
+                        <div class="mt-6 space-y-3 border-y border-slate-800 py-5">
+                            <div class="flex items-center justify-between text-sm">
+                                <span class="text-slate-300">Per Jam (Di Tempat)</span>
+                                <span class="font-orbitron font-bold text-neonCyan">Rp 7.000</span>
+                            </div>
+                            <div class="flex items-center justify-between text-sm">
+                                <span class="text-slate-300">24 Jam (Harian)</span>
+                                <span class="font-orbitron font-bold text-white">Rp 60.000</span>
+                            </div>
+                            <div class="flex items-center justify-between text-sm">
+                                <span class="text-slate-300">Paket Weekend (2 Hari)</span>
+                                <span class="font-orbitron font-bold text-neonMagenta">Rp 110.000</span>
+                            </div>
+                        </div>
+
+                        <!-- Popular Games -->
+                        <div class="mt-5">
+                            <p class="text-xs font-semibold text-slate-300 uppercase tracking-wider mb-2.5">Game Populer Tersedia:</p>
+                            <ul class="space-y-1.5 text-xs text-slate-400">
+                                <li class="flex items-center gap-2"><span class="text-neonCyan">✓</span> PES 2013 / eFootball Patch Terbaru</li>
+                                <li class="flex items-center gap-2"><span class="text-neonCyan">✓</span> GTA V, Basara 2 Heroes, Naruto Storm 3</li>
+                                <li class="flex items-center gap-2"><span class="text-neonCyan">✓</span> Mortal Kombat, Call of Duty, Need For Speed</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="mt-8 space-y-2.5">
+                        <button type="button" onclick="quickSelectConsole('PS3', '24 Jam')" class="w-full py-3 rounded-full bg-slate-800 hover:bg-neonCyan hover:text-slate-950 text-white font-bold text-xs uppercase tracking-wider transition-colors border border-slate-700">
+                            Pilih Paket PS3
+                        </button>
+                        <a href="https://wa.me/6281904439666?text=Halo%20freshFlowers%20by.Raa%2C%20saya%20mau%20sewa%20PS3%20%F0%9F%8E%AE"
+                           target="_blank" rel="noopener noreferrer"
+                           data-wa-url="https://wa.me/6281904439666?text=Halo%20freshFlowers%20by.Raa%2C%20saya%20mau%20sewa%20PS3%20%F0%9F%8E%AE"
+                           onclick="handleWaClick(event, this.getAttribute('data-wa-url'))"
+                           class="w-full py-2.5 rounded-full bg-waGreen/15 hover:bg-waGreen text-waGreen hover:text-slate-950 font-bold text-xs transition-colors flex items-center justify-center gap-2 border border-waGreen/40">
+                            Quick Order PS3 via WA
+                        </a>
+                    </div>
+                </div>
+
+                <!-- PS4 Card (Featured) -->
+                <div class="rounded-3xl bg-cardBg border-2 border-neonCyan p-6 sm:p-8 flex flex-col justify-between glow-cyan relative card-hover">
+                    <div class="absolute -top-3.5 right-6 px-4 py-1 rounded-full bg-gradient-to-r from-neonCyan to-neonMagenta text-white font-orbitron text-[10px] font-extrabold uppercase tracking-wider shadow-lg">
+                        PALING LARIS 🔥
+                    </div>
+
+                    <div>
+                        <div class="flex items-center justify-between mb-4">
+                            <span class="px-3 py-1 rounded-full bg-neonCyan/20 text-neonCyan font-orbitron text-xs font-bold">PLAYSTATION 4</span>
+                            <span class="text-xs font-semibold text-neonMagenta">Full HD 1080p</span>
+                        </div>
+                        <h3 class="font-orbitron text-2xl font-bold text-white">PS4 Slim / Pro</h3>
+                        <p class="text-xs text-slate-400 mt-1">Termasuk 2 Stik DualShock 4 Ori + Kabel HDMI</p>
+
+                        <!-- Pricing Tiers -->
+                        <div class="mt-6 space-y-3 border-y border-slate-800 py-5">
+                            <div class="flex items-center justify-between text-sm">
+                                <span class="text-slate-300">Per Jam (Di Tempat)</span>
+                                <span class="font-orbitron font-bold text-neonCyan">Rp 12.000</span>
+                            </div>
+                            <div class="flex items-center justify-between text-sm">
+                                <span class="text-slate-300">24 Jam (Harian)</span>
+                                <span class="font-orbitron font-bold text-white">Rp 100.000</span>
+                            </div>
+                            <div class="flex items-center justify-between text-sm">
+                                <span class="text-slate-300">Paket Weekend (2 Hari)</span>
+                                <span class="font-orbitron font-bold text-neonMagenta">Rp 185.000</span>
+                            </div>
+                        </div>
+
+                        <!-- Popular Games -->
+                        <div class="mt-5">
+                            <p class="text-xs font-semibold text-slate-300 uppercase tracking-wider mb-2.5">Game Populer Tersedia:</p>
+                            <ul class="space-y-1.5 text-xs text-slate-400">
+                                <li class="flex items-center gap-2"><span class="text-neonCyan">✓</span> EA Sports FC 24/25 & eFootball Update</li>
+                                <li class="flex items-center gap-2"><span class="text-neonCyan">✓</span> GTA V, Red Dead Redemption 2, God of War</li>
+                                <li class="flex items-center gap-2"><span class="text-neonCyan">✓</span> Tekken 7, Naruto Storm Connections, It Takes Two</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="mt-8 space-y-2.5">
+                        <button type="button" onclick="quickSelectConsole('PS4', '24 Jam')" class="w-full py-3 rounded-full bg-gradient-to-r from-neonCyan to-neonMagenta text-white font-bold text-xs uppercase tracking-wider hover:opacity-90 transition-opacity shadow-lg shadow-cyan-500/20">
+                            Pilih Paket PS4
+                        </button>
+                        <a href="https://wa.me/6281904439666?text=Halo%20freshFlowers%20by.Raa%2C%20saya%20mau%20sewa%20PS4%20Slim%2FPro%20%F0%9F%8E%AE"
+                           target="_blank" rel="noopener noreferrer"
+                           data-wa-url="https://wa.me/6281904439666?text=Halo%20freshFlowers%20by.Raa%2C%20saya%20mau%20sewa%20PS4%20Slim%2FPro%20%F0%9F%8E%AE"
+                           onclick="handleWaClick(event, this.getAttribute('data-wa-url'))"
+                           class="w-full py-2.5 rounded-full bg-waGreen hover:bg-waDark text-slate-950 font-bold text-xs transition-colors flex items-center justify-center gap-2">
+                            Quick Order PS4 via WA
+                        </a>
+                    </div>
+                </div>
+
+                <!-- PS5 Card -->
+                <div class="rounded-3xl bg-cardBg border border-slate-800 p-6 sm:p-8 flex flex-col justify-between card-hover">
+                    <div>
+                        <div class="flex items-center justify-between mb-4">
+                            <span class="px-3 py-1 rounded-full bg-neonMagenta/20 text-neonMagenta font-orbitron text-xs font-bold">PLAYSTATION 5</span>
+                            <span class="text-xs font-semibold text-neonCyan">4K 120FPS Next-Gen</span>
+                        </div>
+                        <h3 class="font-orbitron text-2xl font-bold text-white">PS5 Digital / Disc</h3>
+                        <p class="text-xs text-slate-400 mt-1">Termasuk 2 Stik DualSense Ori + Kabel HDMI 2.1</p>
+
+                        <!-- Pricing Tiers -->
+                        <div class="mt-6 space-y-3 border-y border-slate-800 py-5">
+                            <div class="flex items-center justify-between text-sm">
+                                <span class="text-slate-300">Per Jam (Di Tempat)</span>
+                                <span class="font-orbitron font-bold text-neonCyan">Rp 20.000</span>
+                            </div>
+                            <div class="flex items-center justify-between text-sm">
+                                <span class="text-slate-300">24 Jam (Harian)</span>
+                                <span class="font-orbitron font-bold text-white">Rp 180.000</span>
+                            </div>
+                            <div class="flex items-center justify-between text-sm">
+                                <span class="text-slate-300">Paket Weekend (2 Hari)</span>
+                                <span class="font-orbitron font-bold text-neonMagenta">Rp 340.000</span>
+                            </div>
+                        </div>
+
+                        <!-- Popular Games -->
+                        <div class="mt-5">
+                            <p class="text-xs font-semibold text-slate-300 uppercase tracking-wider mb-2.5">Game Populer Tersedia:</p>
+                            <ul class="space-y-1.5 text-xs text-slate-400">
+                                <li class="flex items-center gap-2"><span class="text-neonMagenta">✓</span> EA FC 25, eFootball 2025, NBA 2K25</li>
+                                <li class="flex items-center gap-2"><span class="text-neonMagenta">✓</span> Marvel's Spider-Man 2, Tekken 8, Black Myth: Wukong</li>
+                                <li class="flex items-center gap-2"><span class="text-neonMagenta">✓</span> God of War Ragnarök, Astro Bot, GTA V Next-Gen</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="mt-8 space-y-2.5">
+                        <button type="button" onclick="quickSelectConsole('PS5', '24 Jam')" class="w-full py-3 rounded-full bg-slate-800 hover:bg-neonMagenta hover:text-white text-white font-bold text-xs uppercase tracking-wider transition-colors border border-slate-700">
+                            Pilih Paket PS5
+                        </button>
+                        <a href="https://wa.me/6281904439666?text=Halo%20freshFlowers%20by.Raa%2C%20saya%20mau%20sewa%20PS5%20Digital%2FDisc%20%F0%9F%8E%AE"
+                           target="_blank" rel="noopener noreferrer"
+                           data-wa-url="https://wa.me/6281904439666?text=Halo%20freshFlowers%20by.Raa%2C%20saya%20mau%20sewa%20PS5%20Digital%2FDisc%20%F0%9F%8E%AE"
+                           onclick="handleWaClick(event, this.getAttribute('data-wa-url'))"
+                           class="w-full py-2.5 rounded-full bg-waGreen/15 hover:bg-waGreen text-waGreen hover:text-slate-950 font-bold text-xs transition-colors flex items-center justify-center gap-2 border border-waGreen/40">
+                            Quick Order PS5 via WA
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section: Bentuk Pemesanan (Service Modes) -->
+    <section id="layanan" class="py-20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-2xl mx-auto mb-14">
+                <span class="font-orbitron text-xs font-bold tracking-widest uppercase text-neonMagenta">Fleksibel & Praktis</span>
+                <h2 class="font-orbitron text-2xl sm:text-4xl font-extrabold text-white mt-2">3 Bentuk Pemesanan Rental</h2>
+                <p class="text-slate-400 text-sm sm:text-base mt-3">
+                    Sesuaikan cara penyewaan PS dengan kenyamananmu—bisa main di basecamp atau bawa pulang ke rumah!
+                </p>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-6">
+                <!-- Mode 1: Di Tempat Rental -->
+                <div class="rounded-3xl bg-cardBg border border-slate-800 p-7 card-hover">
+                    <div class="w-14 h-14 rounded-2xl bg-neonCyan/15 border border-neonCyan/30 flex items-center justify-center text-neonCyan mb-6">
+                        <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="font-orbitron text-lg font-bold text-white mb-2">1. Main di Tempat Rental</h3>
+                    <p class="text-slate-400 text-sm leading-relaxed mb-4">
+                        Main langsung di basecamp kami dengan fasilitas TV LED besar, ruangan sejuk, WiFi kencang, dan kursi nyaman.
+                    </p>
+                    <div class="pt-3 border-t border-slate-800 flex items-center justify-between text-xs">
+                        <span class="text-slate-400">Biaya Tambahan:</span>
+                        <span class="font-bold text-waGreen">FREE ONGKIR (Bayar di Kasir/Transfer)</span>
+                    </div>
+                </div>
+
+                <!-- Mode 2: COD / Takeaway -->
+                <div class="rounded-3xl bg-cardBg border border-slate-800 p-7 card-hover">
+                    <div class="w-14 h-14 rounded-2xl bg-neonPurple/15 border border-neonPurple/30 flex items-center justify-center text-neonPurple mb-6">
+                        <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="font-orbitron text-lg font-bold text-white mb-2">2. COD / Takeaway</h3>
+                    <p class="text-slate-400 text-sm leading-relaxed mb-4">
+                        Ambil unit konsol sendiri di toko atau titik COD yang disepakati. Wajib menyerahkan jaminan identitas asli (KTP/SIM/Kartu Pelajar).
+                    </p>
+                    <div class="pt-3 border-t border-slate-800 flex items-center justify-between text-xs">
+                        <span class="text-slate-400">Biaya Tambahan:</span>
+                        <span class="font-bold text-neonCyan">GRATIS (Wajib Jaminan KTP/ID)</span>
+                    </div>
+                </div>
+
+                <!-- Mode 3: Diantar Sampai Rumah -->
+                <div class="rounded-3xl bg-cardBg border border-slate-800 p-7 card-hover">
+                    <div class="w-14 h-14 rounded-2xl bg-neonMagenta/15 border border-neonMagenta/30 flex items-center justify-center text-neonMagenta mb-6">
+                        <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"></path>
+                        </svg>
+                    </div>
+                    <h3 class="font-orbitron text-lg font-bold text-white mb-2">3. Diantar Sampai Rumah</h3>
+                    <p class="text-slate-400 text-sm leading-relaxed mb-4">
+                        Mager keluar rumah? Kurir kami antar unit PS, bantu pasang ke TV kamu, dan jemput kembali setelah waktu sewa selesai!
+                    </p>
+                    <div class="pt-3 border-t border-slate-800 flex items-center justify-between text-xs">
+                        <span class="text-slate-400">Ongkir Antar + Pasang:</span>
+                        <span class="font-orbitron font-bold text-neonMagenta">Rp 15.000</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section: Metode Pembayaran -->
+    <section id="pembayaran" class="py-14 bg-cardBg/50 border-y border-slate-800/80">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-10">
+                <span class="font-orbitron text-xs font-bold tracking-widest uppercase text-neonCyan">Transaksi Aman & Cepat</span>
+                <h2 class="font-orbitron text-xl sm:text-3xl font-extrabold text-white mt-1">Pembayaran Via E-Wallet & Rekening Bank</h2>
+                <p class="text-slate-400 text-xs sm:text-sm mt-2">Nomor rekening / QRIS resmi akan dikirimkan langsung oleh admin saat konfirmasi di WhatsApp</p>
+            </div>
+
+            <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-4">
+                <!-- E-Wallets -->
+                <div class="p-4 rounded-2xl bg-darkBg border border-slate-800 flex items-center gap-3">
+                    <div class="w-10 h-10 rounded-xl bg-sky-500/15 text-sky-400 flex items-center justify-center font-orbitron font-bold text-xs">DANA</div>
+                    <div>
+                        <p class="font-bold text-sm text-white">DANA</p>
+                        <p class="text-[11px] text-slate-400">E-Wallet</p>
+                    </div>
+                </div>
+                <div class="p-4 rounded-2xl bg-darkBg border border-slate-800 flex items-center gap-3">
+                    <div class="w-10 h-10 rounded-xl bg-purple-500/15 text-purple-400 flex items-center justify-center font-orbitron font-bold text-xs">OVO</div>
+                    <div>
+                        <p class="font-bold text-sm text-white">OVO</p>
+                        <p class="text-[11px] text-slate-400">E-Wallet</p>
+                    </div>
+                </div>
+                <div class="p-4 rounded-2xl bg-darkBg border border-slate-800 flex items-center gap-3">
+                    <div class="w-10 h-10 rounded-xl bg-emerald-500/15 text-emerald-400 flex items-center justify-center font-orbitron font-bold text-xs">GOPAY</div>
+                    <div>
+                        <p class="font-bold text-sm text-white">GoPay</p>
+                        <p class="text-[11px] text-slate-400">E-Wallet</p>
+                    </div>
+                </div>
+                <div class="p-4 rounded-2xl bg-darkBg border border-slate-800 flex items-center gap-3">
+                    <div class="w-10 h-10 rounded-xl bg-orange-500/15 text-orange-400 flex items-center justify-center font-orbitron font-bold text-xs">SPAY</div>
+                    <div>
+                        <p class="font-bold text-sm text-white">ShopeePay</p>
+                        <p class="text-[11px] text-slate-400">E-Wallet</p>
+                    </div>
+                </div>
+                <div class="p-4 rounded-2xl bg-darkBg border border-slate-800 flex items-center gap-3">
+                    <div class="w-10 h-10 rounded-xl bg-neonMagenta/15 text-neonMagenta flex items-center justify-center font-orbitron font-bold text-xs">QRIS</div>
+                    <div>
+                        <p class="font-bold text-sm text-white">QRIS All Pay</p>
+                        <p class="text-[11px] text-slate-400">Scan Instan</p>
+                    </div>
+                </div>
+
+                <!-- Bank Accounts & Cash -->
+                <div class="p-4 rounded-2xl bg-darkBg border border-slate-800 flex items-center gap-3">
+                    <div class="w-10 h-10 rounded-xl bg-blue-600/20 text-blue-400 flex items-center justify-center font-orbitron font-bold text-xs">BCA</div>
+                    <div>
+                        <p class="font-bold text-sm text-white">Bank BCA</p>
+                        <p class="text-[11px] text-slate-400">Transfer Rekening</p>
+                    </div>
+                </div>
+                <div class="p-4 rounded-2xl bg-darkBg border border-slate-800 flex items-center gap-3">
+                    <div class="w-10 h-10 rounded-xl bg-blue-500/20 text-blue-300 flex items-center justify-center font-orbitron font-bold text-xs">BRI</div>
+                    <div>
+                        <p class="font-bold text-sm text-white">Bank BRI</p>
+                        <p class="text-[11px] text-slate-400">Transfer Rekening</p>
+                    </div>
+                </div>
+                <div class="p-4 rounded-2xl bg-darkBg border border-slate-800 flex items-center gap-3">
+                    <div class="w-10 h-10 rounded-xl bg-amber-500/15 text-amber-400 flex items-center justify-center font-orbitron font-bold text-xs">MDR</div>
+                    <div>
+                        <p class="font-bold text-sm text-white">Mandiri</p>
+                        <p class="text-[11px] text-slate-400">Transfer Rekening</p>
+                    </div>
+                </div>
+                <div class="col-span-2 p-4 rounded-2xl bg-darkBg border border-waGreen/30 flex items-center gap-3">
+                    <div class="w-10 h-10 rounded-xl bg-waGreen/15 text-waGreen flex items-center justify-center font-orbitron font-bold text-xs">CASH</div>
+                    <div>
+                        <p class="font-bold text-sm text-white">Tunai / Cash</p>
+                        <p class="text-[11px] text-slate-400">Bayar di Tempat Rental atau saat COD</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section: Interactive Order Form & Real-Time Price Calculator -->
+    <section id="order-form" class="py-20 relative">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="rounded-3xl bg-cardBg border border-slate-800 p-6 sm:p-10 glow-magenta">
+                <div class="text-center mb-8">
+                    <span class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-waGreen/15 border border-waGreen/30 text-waGreen font-orbitron text-xs font-bold mb-3">
+                        <span class="w-2 h-2 rounded-full bg-waGreen"></span>
+                        DIRECT ORDER KE WA: 081904439666
+                    </span>
+                    <h2 class="font-orbitron text-2xl sm:text-3xl font-extrabold text-white">Formulir Booking & Kalkulator Sewa</h2>
+                    <p class="text-slate-400 text-xs sm:text-sm mt-2">
+                        Isi detail sewa di bawah ini. Total harga otomatis terhitung dan langsung terkirim rapi ke WhatsApp admin!
+                    </p>
+                </div>
+
+                <form id="rentalOrderForm" onsubmit="submitOrderToWa(event)" class="space-y-6">
+                    <!-- Nama Pemesan -->
+                    <div>
+                        <label for="customerName" class="block text-xs font-semibold text-slate-300 uppercase tracking-wider mb-2">
+                            Nama Pemesan *
+                        </label>
+                        <input type="text" id="customerName" required placeholder="Masukkan nama lengkap Anda..." 
+                               oninput="updateCalculatorAndLink()"
+                               class="w-full px-4 py-3.5 rounded-2xl bg-darkBg border border-slate-700 text-white text-sm placeholder-slate-500 focus:outline-none focus:border-neonCyan transition-colors">
+                    </div>
+
+                    <!-- Tipe PS, Paket Waktu, Jumlah Durasi -->
+                    <div class="grid sm:grid-cols-3 gap-4">
+                        <div>
+                            <label for="consoleType" class="block text-xs font-semibold text-slate-300 uppercase tracking-wider mb-2">
+                                Tipe PlayStation *
+                            </label>
+                            <select id="consoleType" onchange="updateCalculatorAndLink()"
+                                    class="w-full px-4 py-3.5 rounded-2xl bg-darkBg border border-slate-700 text-white text-sm focus:outline-none focus:border-neonCyan transition-colors">
+                                <option value="PS3">PS3 Slim / Super Slim</option>
+                                <option value="PS4" selected>PS4 Slim / Pro</option>
+                                <option value="PS5">PS5 Digital / Disc</option>
+                            </select>
+                        </div>
+
+                        <div>
+                            <label for="timePackage" class="block text-xs font-semibold text-slate-300 uppercase tracking-wider mb-2">
+                                Paket Waktu *
+                            </label>
+                            <select id="timePackage" onchange="updateCalculatorAndLink()"
+                                    class="w-full px-4 py-3.5 rounded-2xl bg-darkBg border border-slate-700 text-white text-sm focus:outline-none focus:border-neonCyan transition-colors">
+                                <option value="Per Jam">Per Jam (Main di Tempat)</option>
+                                <option value="24 Jam" selected>24 Jam (Harian)</option>
+                                <option value="Paket Weekend">Paket Weekend (2 Hari)</option>
+                            </select>
+                        </div>
+
+                        <div>
+                            <label for="durationQty" class="block text-xs font-semibold text-slate-300 uppercase tracking-wider mb-2">
+                                <span id="qtyLabel">Jumlah (Hari)</span> *
+                            </label>
+                            <input type="number" id="durationQty" min="1" max="30" value="1" required
+                                   oninput="updateCalculatorAndLink()" onchange="updateCalculatorAndLink()"
+                                   class="w-full px-4 py-3.5 rounded-2xl bg-darkBg border border-slate-700 text-white text-sm focus:outline-none focus:border-neonCyan transition-colors">
+                        </div>
+                    </div>
+
+                    <!-- Bentuk Pemesanan -->
+                    <div>
+                        <label class="block text-xs font-semibold text-slate-300 uppercase tracking-wider mb-2.5">
+                            Bentuk Pemesanan *
+                        </label>
+                        <div class="grid sm:grid-cols-3 gap-3">
+                            <label class="cursor-pointer rounded-2xl bg-darkBg border border-slate-700 p-4 flex items-start gap-3 hover:border-neonCyan transition-colors">
+                                <input type="radio" name="serviceMode" value="Di Tempat Rental" onchange="updateCalculatorAndLink()" class="mt-1 accent-neonCyan">
+                                <div>
+                                    <span class="block text-sm font-bold text-white">Di Tempat Rental</span>
+                                    <span class="block text-[11px] text-slate-400 mt-0.5">Free ongkir, bayar di tempat</span>
+                                </div>
+                            </label>
+
+                            <label class="cursor-pointer rounded-2xl bg-darkBg border border-slate-700 p-4 flex items-start gap-3 hover:border-neonCyan transition-colors">
+                                <input type="radio" name="serviceMode" value="COD / Takeaway" checked onchange="updateCalculatorAndLink()" class="mt-1 accent-neonCyan">
+                                <div>
+                                    <span class="block text-sm font-bold text-white">COD / Takeaway</span>
+                                    <span class="block text-[11px] text-slate-400 mt-0.5">Ambil sendiri, wajib KTP</span>
+                                </div>
+                            </label>
+
+                            <label class="cursor-pointer rounded-2xl bg-darkBg border border-slate-700 p-4 flex items-start gap-3 hover:border-neonMagenta transition-colors">
+                                <input type="radio" name="serviceMode" value="Diantar Sampai Rumah" onchange="updateCalculatorAndLink()" class="mt-1 accent-neonMagenta">
+                                <div>
+                                    <span class="block text-sm font-bold text-white">Diantar ke Rumah</span>
+                                    <span class="block text-[11px] text-neonMagenta mt-0.5">+ Ongkir Rp 15.000</span>
+                                </div>
+                            </label>
+                        </div>
+                    </div>
+
+                    <!-- Metode Pembayaran -->
+                    <div>
+                        <label for="paymentMethod" class="block text-xs font-semibold text-slate-300 uppercase tracking-wider mb-2">
+                            Metode Pembayaran *
+                        </label>
+                        <select id="paymentMethod" onchange="updateCalculatorAndLink()"
+                                class="w-full px-4 py-3.5 rounded-2xl bg-darkBg border border-slate-700 text-white text-sm focus:outline-none focus:border-neonCyan transition-colors">
+                            <optgroup label="E-Wallet">
+                                <option value="E-Wallet: DANA">E-Wallet - DANA</option>
+                                <option value="E-Wallet: OVO">E-Wallet - OVO</option>
+                                <option value="E-Wallet: GoPay">E-Wallet - GoPay</option>
+                                <option value="E-Wallet: ShopeePay">E-Wallet - ShopeePay</option>
+                                <option value="E-Wallet: QRIS">QRIS (Semua E-Wallet / M-Banking)</option>
+                            </optgroup>
+                            <optgroup label="Transfer Rekening Bank">
+                                <option value="Transfer Rekening: BCA">Transfer Rekening - BCA</option>
+                                <option value="Transfer Rekening: BRI">Transfer Rekening - BRI</option>
+                                <option value="Transfer Rekening: Mandiri">Transfer Rekening - Mandiri</option>
+                            </optgroup>
+                            <optgroup label="Tunai">
+                                <option value="Tunai / Cash (Di Tempat / COD)">Tunai / Cash (Di Tempat Rental / COD)</option>
+                            </optgroup>
+                        </select>
+                    </div>
+
+                    <!-- Alamat Lengkap / Catatan -->
+                    <div>
+                        <label for="addressNotes" class="block text-xs font-semibold text-slate-300 uppercase tracking-wider mb-2">
+                            <span id="addressLabel">Alamat Lengkap / Catatan Tambahan (Request Game / Jam Main)</span>
+                        </label>
+                        <textarea id="addressNotes" rows="3" placeholder="Contoh: Jl. Merdeka No. 12 (Patokan depan minimarket) / Request game FC 25 & GTA V, mulai jam 19.00..."
+                                  oninput="updateCalculatorAndLink()"
+                                  class="w-full px-4 py-3.5 rounded-2xl bg-darkBg border border-slate-700 text-white text-sm placeholder-slate-500 focus:outline-none focus:border-neonCyan transition-colors"></textarea>
+                    </div>
+
+                    <!-- Live Price Summary Box -->
+                    <div class="p-5 sm:p-6 rounded-2xl bg-darkBg border border-neonCyan/40 flex flex-col sm:flex-row items-center justify-between gap-4">
+                        <div class="text-center sm:text-left">
+                            <p class="text-xs text-slate-400 uppercase tracking-wider font-semibold">Estimasi Total Pembayaran</p>
+                            <p id="totalPriceText" class="font-orbitron text-3xl sm:text-4xl font-black text-neonCyan mt-1">Rp 100.000</p>
+                            <p id="priceBreakdownText" class="text-xs text-slate-400 mt-1">PS4 (1 x 24 Jam = Rp 100.000) + COD (Gratis Ongkir)</p>
+                        </div>
+                        <div class="text-center sm:text-right">
+                            <span class="inline-block px-3 py-1 rounded-full bg-slate-800 text-slate-300 text-xs font-medium">
+                                Include 2 Stik Ori & Kabel
+                            </span>
+                        </div>
+                    </div>
+
+                    <!-- Dual Action Submit & Live Anchor Link -->
+                    <div class="space-y-3 pt-2">
+                        <button type="submit" 
+                                class="w-full py-4 px-6 rounded-full bg-waGreen hover:bg-waDark text-slate-950 font-extrabold text-base transition-all shadow-lg shadow-waGreen/25 flex items-center justify-center gap-3 cursor-pointer">
+                            <svg class="w-6 h-6 fill-current" viewBox="0 0 24 24">
+                                <path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.77-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.299.045-.677.063-1.092-.069-.252-.08-.575-.187-.988-.365-1.739-.751-2.874-2.502-2.961-2.617-.087-.116-.708-.94-.708-1.793s.448-1.273.607-1.446c.159-.173.346-.217.462-.217l.332.006c.106.005.249-.04.39.298.144.347.491 1.2.534 1.287.043.087.072.188.014.304-.058.116-.087.188-.173.289l-.26.304c-.087.086-.177.18-.076.354.101.174.449.741.964 1.201.662.591 1.221.774 1.394.86s.274.072.376-.043c.101-.116.433-.506.549-.68.116-.173.231-.145.39-.087s1.011.477 1.184.564.289.13.332.202c.045.072.045.419-.1.824zm-3.423-14.416c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm.029 18.88c-1.161 0-2.305-.292-3.318-.844l-3.677.964.984-3.595c-.607-1.052-.927-2.246-.926-3.468.001-3.825 3.113-6.937 6.937-6.937 1.856.001 3.598.723 4.907 2.034 1.31 1.311 2.031 3.054 2.03 4.908-.001 3.825-3.113 6.938-6.937 6.938z"/>
+                            </svg>
+                            Kirim Pesanan ke WhatsApp (081904439666)
+                        </button>
+
+                        <!-- Direct Dynamic Anchor Fallback -->
+                        <div class="text-center">
+                            <a id="wa-direct-link"
+                               href="https://wa.me/6281904439666"
+                               target="_blank"
+                               rel="noopener noreferrer"
+                               onclick="handleWaClick(event, this.href)"
+                               class="inline-flex items-center gap-1.5 text-xs text-slate-400 hover:text-neonCyan underline underline-offset-4 transition-colors">
+                                Atau klik tautan langsung WhatsApp ini jika tombol di atas terblokir popup
+                            </a>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-cardBg border-t border-slate-800/80 py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid md:grid-cols-3 gap-8 items-start pb-8 border-b border-slate-800">
+                <div>
+                    <span class="font-orbitron font-extrabold text-xl text-white block">
+                        freshFlowers <span class="text-neonCyan">by.Raa</span>
+                    </span>
+                    <p class="text-xs text-slate-400 mt-3 leading-relaxed">
+                        Pusat jasa sewa PlayStation 3, PS4 Slim/Pro, dan PS5 terpercaya. Melayani main di tempat, COD/Takeaway, dan antar-jemput sampai rumah dengan pembayaran fleksibel.
+                    </p>
+                </div>
+
+                <div>
+                    <h4 class="font-orbitron text-sm font-bold text-white uppercase tracking-wider mb-3">Layanan & Jam Buka</h4>
+                    <ul class="space-y-2 text-xs text-slate-400">
+                        <li>• Setiap Hari: 09.00 – 23.00 WIB</li>
+                        <li>• Booking via WhatsApp: 24 Jam Fast Respon</li>
+                        <li>• Syarat COD / Antar Rumah: Identitas Asli (KTP/SIM)</li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="font-orbitron text-sm font-bold text-white uppercase tracking-wider mb-3">Hubungi Admin</h4>
+                    <a href="https://wa.me/6281904439666?text=Halo%20Admin%20freshFlowers%20by.Raa%2C%20saya%20ingin%20bertanya%20seputar%20rental%20PS"
+                       target="_blank" rel="noopener noreferrer"
+                       data-wa-url="https://wa.me/6281904439666?text=Halo%20Admin%20freshFlowers%20by.Raa%2C%20saya%20ingin%20bertanya%20seputar%20rental%20PS"
+                       onclick="handleWaClick(event, this.getAttribute('data-wa-url'))"
+                       class="inline-flex items-center gap-2.5 px-4 py-2.5 rounded-2xl bg-waGreen/15 border border-waGreen/40 text-waGreen hover:bg-waGreen hover:text-slate-950 font-bold text-xs transition-colors">
+                        <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24">
+                            <path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.77-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.299.045-.677.063-1.092-.069-.252-.08-.575-.187-.988-.365-1.739-.751-2.874-2.502-2.961-2.617-.087-.116-.708-.94-.708-1.793s.448-1.273.607-1.446c.159-.173.346-.217.462-.217l.332.006c.106.005.249-.04.39.298.144.347.491 1.2.534 1.287.043.087.072.188.014.304-.058.116-.087.188-.173.289l-.26.304c-.087.086-.177.18-.076.354.101.174.449.741.964 1.201.662.591 1.221.774 1.394.86s.274.072.376-.043c.101-.116.433-.506.549-.68.116-.173.231-.145.39-.087s1.011.477 1.184.564.289.13.332.202c.045.072.045.419-.1.824zm-3.423-14.416c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm.029 18.88c-1.161 0-2.305-.292-3.318-.844l-3.677.964.984-3.595c-.607-1.052-.927-2.246-.926-3.468.001-3.825 3.113-6.937 6.937-6.937 1.856.001 3.598.723 4.907 2.034 1.31 1.311 2.031 3.054 2.03 4.908-.001 3.825-3.113 6.938-6.937 6.938z"/>
+                        </svg>
+                        WhatsApp: 081904439666
+                    </a>
+                </div>
+            </div>
+
+            <div class="pt-6 flex flex-col sm:flex-row items-center justify-between text-xs text-slate-500 gap-2">
+                <p>&copy; 2026 <strong class="text-slate-300">freshFlowers by.Raa</strong>. All Rights Reserved.</p>
+                <p>PlayStation Rental & Gaming Lounge</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Floating WhatsApp Button (Bottom Right) -->
+    <a href="https://wa.me/6281904439666?text=Halo%20Admin%20freshFlowers%20by.Raa%2C%20saya%20mau%20order%20rental%20PS%20%F0%9F%8E%AE"
+       target="_blank"
+       rel="noopener noreferrer"
+       data-wa-url="https://wa.me/6281904439666?text=Halo%20Admin%20freshFlowers%20by.Raa%2C%20saya%20mau%20order%20rental%20PS%20%F0%9F%8E%AE"
+       onclick="handleWaClick(event, this.getAttribute('data-wa-url'))"
+       aria-label="Chat WhatsApp freshFlowers by.Raa"
+       class="fixed bottom-6 right-6 z-50 flex items-center gap-2.5 bg-waGreen hover:bg-waDark text-slate-950 font-extrabold px-4 py-3.5 rounded-full shadow-2xl shadow-waGreen/40 hover:scale-105 transition-all">
+        <svg class="w-6 h-6 fill-current" viewBox="0 0 24 24">
+            <path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.77-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.299.045-.677.063-1.092-.069-.252-.08-.575-.187-.988-.365-1.739-.751-2.874-2.502-2.961-2.617-.087-.116-.708-.94-.708-1.793s.448-1.273.607-1.446c.159-.173.346-.217.462-.217l.332.006c.106.005.249-.04.39.298.144.347.491 1.2.534 1.287.043.087.072.188.014.304-.058.116-.087.188-.173.289l-.26.304c-.087.086-.177.18-.076.354.101.174.449.741.964 1.201.662.591 1.221.774 1.394.86s.274.072.376-.043c.101-.116.433-.506.549-.68.116-.173.231-.145.39-.087s1.011.477 1.184.564.289.13.332.202c.045.072.045.419-.1.824zm-3.423-14.416c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm.029 18.88c-1.161 0-2.305-.292-3.318-.844l-3.677.964.984-3.595c-.607-1.052-.927-2.246-.926-3.468.001-3.825 3.113-6.937 6.937-6.937 1.856.001 3.598.723 4.907 2.034 1.31 1.311 2.031 3.054 2.03 4.908-.001 3.825-3.113 6.938-6.937 6.938z"/>
+        </svg>
+        <span class="text-xs sm:text-sm hidden sm:inline">Chat WA Admin</span>
+    </a>
+
+    <!-- JavaScript: Pricing Engine & Sandbox-Safe WhatsApp Redirection -->
+    <script>
+        const WA_PHONE = '6281904439666';
+        const DELIVERY_COST = 15000;
+
+        // Pricing Dictionary (IDR)
+        const RENTAL_RATES = {
+            PS3: {
+                'Per Jam': 7000,
+                '24 Jam': 60000,
+                'Paket Weekend': 110000
+            },
+            PS4: {
+                'Per Jam': 12000,
+                '24 Jam': 100000,
+                'Paket Weekend': 185000
+            },
+            PS5: {
+                'Per Jam': 20000,
+                '24 Jam': 180000,
+                'Paket Weekend': 340000
+            }
+        };
+
+        // Mobile Navigation Toggle
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const mobileMenu = document.getElementById('mobileMenu');
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+        document.querySelectorAll('.mobile-link').forEach(link => {
+            link.addEventListener('click', () => mobileMenu.classList.add('hidden'));
+        });
+
+        // Format number to Rupiah
+        function formatRupiah(amount) {
+            return 'Rp ' + amount.toLocaleString('id-ID');
+        }
+
+        // Sandbox & Popup-Safe WhatsApp Opener
+        function openWhatsAppUrl(url) {
+            try {
+                const win = window.open(url, '_blank', 'noopener,noreferrer');
+                if (!win || win.closed || typeof win.closed === 'undefined') {
+                    // Fallback if popup blocker or iframe sandbox blocks window.open
+                    try {
+                        window.top.location.href = url;
+                    } catch (e) {
+                        window.location.href = url;
+                    }
+                }
+            } catch (err) {
+                try {
+                    window.top.location.href = url;
+                } catch (e2) {
+                    window.location.href = url;
+                }
+            }
+        }
+
+        // Handler for direct anchor links so they work reliably in iframes and browsers
+        function handleWaClick(event, url) {
+            if (!url) return;
+            event.preventDefault();
+            openWhatsAppUrl(url);
+        }
+
+        // Quick Select from Pricing Cards
+        function quickSelectConsole(consoleType, timePkg) {
+            document.getElementById('consoleType').value = consoleType;
+            document.getElementById('timePackage').value = timePkg;
+            document.getElementById('durationQty').value = 1;
+            updateCalculatorAndLink();
+            document.getElementById('order-form').scrollIntoView({ behavior: 'smooth' });
+        }
+
+        // Build WhatsApp Message & URL from Form State
+        function buildOrderWhatsAppUrl() {
+            const nameInput = document.getElementById('customerName').value.trim();
+            const customerName = nameInput || '(Belum diisi)';
+            const consoleType = document.getElementById('consoleType').value;
+            const timePackage = document.getElementById('timePackage').value;
+            const qty = Math.max(1, parseInt(document.getElementById('durationQty').value, 10) || 1);
+            const serviceMode = document.querySelector('input[name="serviceMode"]:checked').value;
+            const paymentMethod = document.getElementById('paymentMethod').value;
+            const addressNotes = document.getElementById('addressNotes').value.trim() || '-';
+
+            const basePrice = RENTAL_RATES[consoleType][timePackage] || 0;
+            const subtotal = basePrice * qty;
+            const shipping = serviceMode === 'Diantar Sampai Rumah' ? DELIVERY_COST : 0;
+            const total = subtotal + shipping;
+
+            const textLines = [
+                `Halo Admin *freshFlowers by.Raa*, saya mau order rental PlayStation 🎮`,
+                ``,
+                `*DATA PEMESAN*`,
+                `• Nama: ${customerName}`,
+                `• Tipe PS: ${consoleType}`,
+                `• Paket Waktu: ${timePackage} (${qty}x)`,
+                `• Bentuk Pemesanan: ${serviceMode}`,
+                `• Pembayaran: ${paymentMethod}`,
+                `• Alamat / Catatan: ${addressNotes}`,
+                ``,
+                `*RINCIAN BIAYA*`,
+                `• Sewa Unit: ${formatRupiah(subtotal)}`,
+                `• Ongkir/Layanan: ${shipping > 0 ? formatRupiah(shipping) : 'Gratis (Rp 0)'}`,
+                `• *Total Estimasi: ${formatRupiah(total)}*`,
+                ``,
+                `Mohon info ketersediaan unitnya ya Admin. Terima kasih!`
+            ];
+
+            const encodedText = encodeURIComponent(textLines.join('\n'));
+            return `https://wa.me/${WA_PHONE}?text=${encodedText}`;
+        }
+
+        // Real-time Calculator & Dynamic Anchor Link Updater
+        function updateCalculatorAndLink() {
+            const consoleType = document.getElementById('consoleType').value;
+            const timePackage = document.getElementById('timePackage').value;
+            const qtyInput = document.getElementById('durationQty');
+            const qty = Math.max(1, parseInt(qtyInput.value, 10) || 1);
+            const serviceMode = document.querySelector('input[name="serviceMode"]:checked').value;
+
+            // Update unit label dynamically
+            const qtyLabel = document.getElementById('qtyLabel');
+            if (timePackage === 'Per Jam') {
+                qtyLabel.textContent = 'Jumlah (Jam)';
+            } else if (timePackage === '24 Jam') {
+                qtyLabel.textContent = 'Jumlah (Hari)';
+            } else {
+                qtyLabel.textContent = 'Jumlah (Paket)';
+            }
+
+            // Update address field placeholder & label emphasis
+            const addressLabel = document.getElementById('addressLabel');
+            const addressNotes = document.getElementById('addressNotes');
+            if (serviceMode === 'Diantar Sampai Rumah') {
+                addressLabel.textContent = 'Alamat Rumah Lengkap & Patokan * (Wajib untuk Antar)';
+                addressNotes.required = true;
+            } else {
+                addressLabel.textContent = 'Catatan Tambahan (Request Game / Jam Main / Titik COD)';
+                addressNotes.required = false;
+            }
+
+            // Calculate price
+            const basePrice = RENTAL_RATES[consoleType][timePackage] || 0;
+            const subtotal = basePrice * qty;
+            const shipping = serviceMode === 'Diantar Sampai Rumah' ? DELIVERY_COST : 0;
+            const total = subtotal + shipping;
+
+            // Render price to DOM
+            document.getElementById('totalPriceText').textContent = formatRupiah(total);
+
+            const shippingNote = shipping > 0
+                ? `+ Ongkir Antar Rumah (${formatRupiah(shipping)})`
+                : `+ ${serviceMode} (Free Ongkir)`;
+
+            document.getElementById('priceBreakdownText').textContent =
+                `${consoleType} (${qty} x ${timePackage} = ${formatRupiah(subtotal)}) ${shippingNote}`;
+
+            // Keep live direct anchor href updated at all times
+            const directLink = document.getElementById('wa-direct-link');
+            if (directLink) {
+                directLink.href = buildOrderWhatsAppUrl();
+            }
+        }
+
+        // Handle Form Submission
+        function submitOrderToWa(event) {
+            event.preventDefault();
+            const waUrl = buildOrderWhatsAppUrl();
+            openWhatsAppUrl(waUrl);
+        }
+
+        // Initialize on page load
+        window.addEventListener('DOMContentLoaded', () => {
+            updateCalculatorAndLink();
+        });
+    </script>
+</body>
+</html>
+```
